@@ -28,7 +28,7 @@ pipeline {
 
             steps {
                 withMaven(maven : 'LocalMaven') {
-                    sh 'mvn test'
+                    sh 'mvn clean test'
                 }
             }
 }
@@ -36,7 +36,7 @@ pipeline {
 
             steps {
                 withMaven(maven : 'LocalMaven') {
-                    sh 'mvn package'
+                    sh 'mvn clean package'
                 }
             }
 }
@@ -44,7 +44,7 @@ pipeline {
 
             steps {
                 withMaven(maven : 'LocalMaven') {
-                    sh 'mvn install'
+                    sh 'mvn clean install'
                 }
             }
 }
@@ -52,7 +52,7 @@ pipeline {
 
             steps {
                 withMaven(maven : 'LocalMaven') {
-                    sh 'mvn deploy'
+                    sh 'mvn clean deploy'
                 }
             }
 }
