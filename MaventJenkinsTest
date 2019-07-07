@@ -48,14 +48,14 @@ pipeline {
                 }
             }
 }
-		stage ('Copies the final package to the remote repository') {
+		stage ('Deploy artifact via ssh agent') {
 
             steps {
-                withMaven(maven : 'LocalMaven') {
-                    sh 'mvn clean deploy'
+                sshagent (credentials: ['c3bdf80c-884b-416a-816f-29ff9d43fc4a']) {
+                    sh 'scp -o StrictHostKeyChecking=no */target/*.war ec2-user@18.218.114.6:/usr/share/tomcat/webapps'
                 }
             }
-}
+}					
 }
 }
                  
