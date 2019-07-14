@@ -10,7 +10,7 @@ public class Greeter {
    */
   public Greeter() {
     
-    logger.log("Fixed as sonarqube was suggesting that you should not have empty method");
+    int a=10;
 
   }
 
